@@ -19,7 +19,16 @@ public class SanPhamTheoLoaiSanPhamController {
 	@RequestMapping("/chitietloaisanpham/{id}")
 	public String sanPhamTheoLoaiSanPham(@PathVariable int id, ModelMap model) {
 		List<sanpham> listSanPhamTheoLoai = db.getListSanPhamTheoLoai(id);
+		String loaiSP = "";
+		if(id == 1) {
+			loaiSP = "Iphone";
+		}else if(id == 2) {
+			loaiSP = "Samsung";
+		}else {
+			loaiSP = "Oppo";
+		}
 		model.addAttribute("ListSanPhamTheoLoai", listSanPhamTheoLoai);
+		model.addAttribute("LoaiSP", loaiSP);
 		return "SanPhamTheoLoaiSanPham";
 	}
 }

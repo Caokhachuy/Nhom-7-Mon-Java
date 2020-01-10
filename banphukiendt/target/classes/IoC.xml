@@ -14,6 +14,13 @@
 	<bean name="databasesanpham" class="dao.Databasesanpham">
 		<property name="dataSource" ref="dbphukiendt" />
 	</bean>
+	<bean name="databasecauhinh" class="dao.Databasecauhinh">
+		<property name="dataSource" ref="dbphukiendt" />
+	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> <!-- maxUploadSize=20MB -->
+		<property name="maxUploadSize" value="20971520"/>
+	</bean>
 	
 		<bean name="dbphukiendt" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
